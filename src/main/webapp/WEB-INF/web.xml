@@ -5,6 +5,16 @@
 <web-app>
     <display-name>Archetype Created Web Application</display-name>
 
+    <!-- 共享spring容器配置begin -->
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:spring-mvc.xml</param-value>
+    </context-param>
+    <!-- 共享spring容器配置end -->
+
     <!--配置DispatcherServlet-->
     <servlet>
         <servlet-name>springMVC</servlet-name>
