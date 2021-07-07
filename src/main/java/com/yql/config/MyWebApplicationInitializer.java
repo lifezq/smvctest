@@ -19,6 +19,11 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
         context.register(AppConfig.class);
 
+//        // 设置父容器
+//        AnnotationConfigWebApplicationContext parent = new AnnotationConfigWebApplicationContext();
+//        parent.register(ParentAppConfig.class);
+//        context.setParent(parent);
+//        parent.refresh();
 
         DispatcherServlet servlet = new DispatcherServlet(context);
         ServletRegistration.Dynamic registration = servletContext.addServlet("app", servlet);
