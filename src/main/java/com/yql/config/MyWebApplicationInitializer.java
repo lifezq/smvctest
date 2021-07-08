@@ -18,13 +18,14 @@ public class MyWebApplicationInitializer implements WebApplicationInitializer {
     public void onStartup(ServletContext servletContext) throws ServletException {
         AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
         context.register(AppConfig.class);
+        context.refresh();
 
-//        // 设置父容器
+        // 设置父容器
 //        AnnotationConfigWebApplicationContext parent = new AnnotationConfigWebApplicationContext();
 //        parent.register(ParentAppConfig.class);
-//        context.setParent(parent);
 //        parent.refresh();
-
+//        context.setParent(parent);
+        
         DispatcherServlet servlet = new DispatcherServlet(context);
         ServletRegistration.Dynamic registration = servletContext.addServlet("app", servlet);
         registration.setLoadOnStartup(1);

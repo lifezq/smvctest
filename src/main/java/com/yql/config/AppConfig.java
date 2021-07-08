@@ -1,7 +1,16 @@
 package com.yql.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
-@ComponentScan("com.yql.controller")
+@ComponentScan("com.yql.controllerv2")
 public class AppConfig {
+    @Bean
+    public InternalResourceViewResolver internalResourceViewResolver() {
+        InternalResourceViewResolver internalResourceViewResolver = new InternalResourceViewResolver();
+        internalResourceViewResolver.setPrefix("/WEB-INF/views/");
+        internalResourceViewResolver.setSuffix(".jsp");
+        return internalResourceViewResolver;
+    }
 }
